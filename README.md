@@ -1,18 +1,22 @@
-# LE LAW OFFICE Website
+# LE LAW OFFICE Website (Full Version)
 
-This is the official website for **LE LAW OFFICE**, covering Immigration & Refugee Law and Criminal Law services.
+A responsive, static website for LE LAW OFFICE with a reservations page and downloadable calendar invites.
 
-## Structure
-- `index.html` — Homepage
-- `reservations.html` — Consultation booking page
-- `styles.css` — Site styling
-- `script.js` — Interactivity & form handling
-- `assets/` — Favicon and images
-
-## Deployment
-This repo is designed for **Netlify** hosting. 
+## Deploy on Netlify
 - Build command: *(leave blank)*
-- Publish directory: `/` (root)
+- Publish directory: `/`
 
-## Author
-LE LAW OFFICE — Vaughan, Ontario, Canada.
+## Pages
+- `index.html` — Home, Services, Attorney, Testimonials, Contact
+- `reservations.html` — Booking form (creates .ics invite)
+- `styles.css` — Design system (Ocean Blue theme)
+- `script.js` — Menu + booking logic (local preview)
+- `assets/favicon.svg` — Simple favicon
+
+## Recommended DNS (Namecheap → Netlify)
+A `@` → 75.2.60.5  
+A `@` → 99.83.190.102  
+CNAME `www` → your-site-name.netlify.app
+
+## Email (Google Workspace)
+MX records: ASPMX.L.GOOGLE.COM (1), ALT1/ALT2 (5), ALT3/ALT4 (10)
