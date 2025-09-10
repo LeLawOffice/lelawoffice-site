@@ -13,21 +13,23 @@
     <a href="about.html">About</a>
     <a href="testimonials.html">Testimonials</a>
     <a href="index.html#services">Services</a>
-    <a href="reservations.html" aria-current="page">Reservations</a>
+    <a href="reservations.html">Reservations</a>
     <a href="index.html#contact">Contact</a>
   </nav>
 </div></header>
-<div class="resv"><main class="resv-wrap"><h1>Book a Consultation</h1>
-<p class="resv-muted"><span class="resv-badge">New</span> Use the form below to request a consultation. You’ll also get a downloadable calendar invite (.ics).</p>
-<form id="reservation-form" class="resv-form" name="Reservation" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="Reservation">
-<p class="resv-hide"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
-<div class="resv-grid"><label>Full Name *<input name="name" required></label><label>Email *<input name="email" type="email" required></label></div>
-<div class="resv-grid"><label>Preferred Date *<input name="date" type="date" required></label><label>Preferred Time *<input name="time" type="time" required></label></div>
-<div class="resv-grid"><label>Service *<select name="service" required><option value=''>Select…</option><option>Immigration & Refugee</option><option>Criminal Defence</option><option>Consultation / Case Review</option></select></label><label>Phone (optional)<input name="phone" placeholder="+1 (___) ___-____"></label></div>
-<label>Notes<textarea name="message" rows="5" placeholder="Briefly describe your matter (optional)"></textarea></label>
-<div id="reservation-alert" class="resv-muted" style="margin:8px 0 0;"></div>
-<button class="resv-btn resv-primary" type="submit">Request Reservation</button>
-<p class="resv-small"><a href="index.html">← Back to Home</a></p>
-</form></main></div>
+<div class="resv"><main class="resv-wrap">
+  <h1>Book a Consultation</h1>
+  <p class="resv-muted"><span class="resv-badge">New</span> Use the form below to request a consultation. You’ll also get a downloadable calendar invite (.ics).</p>
+  <form id="reservation-form" class="resv-form" name="Reservation" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="Reservation">
+    <p class="resv-hide"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
+    <div class="resv-grid"><label>Full Name *<input name="name" required></label><label>Email *<input name="email" type="email" required></label></div>
+    <div class="resv-grid"><label>Preferred Date *<input name="date" type="date" required></label><label>Preferred Time *<input name="time" type="time" required></label></div>
+    <div class="resv-grid"><label>Service *<select name="service" required><option value=''>Select…</option><option>Immigration & Refugee</option><option>Criminal Defence</option><option>Consultation / Case Review</option></select></label><label>Phone (optional)<input name="phone" placeholder="+1 (___) ___-____"></label></div>
+    <label>Notes<textarea name="message" rows="5" placeholder="Briefly describe your matter (optional)"></textarea></label>
+    <div id="reservation-alert" class="resv-muted" style="margin:8px 0 0;"></div>
+    <button class="resv-btn resv-primary" type="submit">Request Reservation</button>
+    <p class="resv-small"><a href="index.html">← Back to Home</a></p>
+  </form>
+</main></div>
 </body></html>
