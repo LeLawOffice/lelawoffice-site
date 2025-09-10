@@ -1,37 +1,116 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LE LAW OFFICE — Vaughan, Ontario</title>
-<link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="styles.css">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LE LAW OFFICE — Justice. Integrity. Advocacy.</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-</head><body>
-<header class="header"><div class="container bar">
-  <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
-  <nav class="nav">
-    <a href="about.html">About</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="index.html#services">Services</a>
-    <a href="reservations.html">Reservations</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-</div></header>
+<!-- Header -->
+<header class="header">
+  <div class="container bar">
+    <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
+
+    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">
+      Menu
+    </button>
+
+    <nav id="site-nav" class="nav">
+      <a href="about.html">About</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="index.html#services" aria-current="page">Services</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
 <main>
   <section class="hero container">
     <h1>Justice. Integrity. Advocacy.</h1>
-    <p class="lead">Barrister & Solicitor in Vaughan, Ontario — focused on <strong>Immigration & Refugee Law</strong> and <strong>Criminal Law</strong>.</p>
-    <p style="margin-top:14px"><a class="btn primary" href="reservations.html">Book a Consultation</a></p>
+    <p class="lead">Barrister & Solicitor in Vaughan, Ontario — focused on
+       <strong>Immigration & Refugee Law</strong> and <strong>Criminal Law</strong>.</p>
+    <p>
+      <a class="btn primary" href="reservations.html">Book a Consultation</a>
+      <a class="btn" href="#services">Our Services</a>
+    </p>
   </section>
-  <section id="services" class="section"><div class="container grid two">
-    <div class="card"><h2>Immigration & Refugee</h2><ul><li>Visitor, Study, Work Permits</li><li>LMIA & PR Sponsorship</li><li>Refugee Claims, RAD Appeals, PRRA</li></ul></div>
-    <div class="card"><h2>Criminal Defence</h2><ul><li>Bail, CPT, JPT</li><li>Trial preparation & defence</li><li>Negotiations & settlements</li></ul></div>
-  </div></section>
-  <section id="contact" class="section"><div class="container grid two">
-    <div><h2>Contact</h2><p>9131 Keele Street, Suite A4<br>Vaughan, Ontario L4K 0G7</p>
-    <p>Phone: <a href="tel:+16135812211">613-581-2211</a><br>Email: <a href="mailto:info@lelawoffice.ca">info@lelawoffice.ca</a></p></div>
-    <div class="card"><h3>Office Hours</h3><p>Mon–Fri: 9:00 – 17:00</p><p>No appointment on weekends.</p></div>
-  </div></section>
-  <footer class="footer"><div class="container">© <span id="y"></span> LE LAW OFFICE. All rights reserved.</div>
-  <script>document.getElementById('y')&&(document.getElementById('y').textContent=new Date().getFullYear());</script>
+
+  <!-- Services -->
+  <section id="services" class="section container">
+    <h2>Legal Services</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Immigration & Refugee</h3>
+        <ul>
+          <li>Visitor, Study, Work Permits</li>
+          <li>LMIA & PR Sponsorship</li>
+          <li>Refugee Claims, RAD Appeals, PRRA</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Criminal Defence</h3>
+        <ul>
+          <li>Bail, CPT, JPT</li>
+          <li>Trial preparation & defence</li>
+          <li>Negotiations & settlements</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Counsel -->
+  <section class="section container">
+    <h2>Your Counsel</h2>
+    <p><strong>Lelebari Blessing Nkpogone-Mpigi (Lele)</strong> —
+       Barrister & Solicitor. Dedicated to client-centered advocacy
+       with clear communication and practical results.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section container">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:info@lelawoffice.ca">info@lelawoffice.ca</a></p>
+    <p>Phone: <a href="tel:+16135812211">(613) 581-2211</a></p>
+    <p>Address: 9131 Keele Street, Suite A4, Vaughan, Ontario L4K 0G7</p>
+  </section>
 </main>
-</body></html>
+
+<!-- Footer -->
+<footer class="footer container">
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> LE LAW OFFICE. All rights reserved.</p>
+</footer>
+
+<!-- Mobile menu script -->
+<script>
+  (function(){
+    const btn = document.getElementById('menu-toggle');
+    const nav = document.getElementById('site-nav');
+    if(!btn || !nav) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.addEventListener('click', (e) => {
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
