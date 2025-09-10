@@ -7,17 +7,14 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Page-scoped helpers so this works even if styles.css is older -->
+  <!-- Scoped helpers -->
   <style>
-    /* show/hide helpers */
     .hide-mobile{display:inline}
     .hide-desktop{display:none}
     @media (max-width:900px){
       .hide-mobile{display:none}
       .hide-desktop{display:block}
     }
-
-    /* mobile dropdown nav under header */
     @media (max-width:900px){
       #menu-toggle{display:inline-block}
       .header .bar{position:relative; align-items:center}
@@ -40,7 +37,7 @@
 </head>
 
 <body>
-  <!-- Header with dropdown menu -->
+  <!-- Header -->
   <header class="header">
     <div class="container bar">
       <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
@@ -70,11 +67,11 @@
         class="calendly-inline-widget"
         id="cal-embed"
         data-url="https://calendly.com/lelawoffice-info/30min"
-        style="min-width:320px;height:760px">
+        style="min-width:320px;height:900px">
       </div>
     </div>
 
-    <!-- Mobile: popup Calendly (no cut-off, smoother) -->
+    <!-- Mobile: popup Calendly -->
     <div class="hide-desktop" style="margin-top:12px">
       <a class="btn primary" id="open-cal">Open Calendar &amp; Book</a>
     </div>
@@ -82,7 +79,7 @@
     <!-- Calendly script -->
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    <!-- Page JS: Calendly popup + mobile menu -->
+    <!-- Page JS -->
     <script>
       // Mobile Calendly popup
       document.getElementById('open-cal')?.addEventListener('click', function(){
@@ -91,7 +88,7 @@
         }
       });
 
-      // Mobile dropdown menu
+      // Mobile dropdown nav
       (function(){
         const btn = document.getElementById('menu-toggle');
         const nav = document.getElementById('site-nav');
@@ -102,7 +99,6 @@
           btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
 
-        // Close after tapping a link
         nav.addEventListener('click', (e) => {
           if(e.target.tagName === 'A'){
             nav.classList.remove('open');
@@ -110,7 +106,6 @@
           }
         });
 
-        // Reset when switching to desktop
         window.addEventListener('resize', () => {
           if (window.innerWidth > 900) {
             nav.classList.remove('open');
