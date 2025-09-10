@@ -1,31 +1,45 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — LE LAW OFFICE</title>
-<link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="styles.css">
-
-</head><body>
-<header class="header"><div class="container bar">
-  <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
-  <nav class="nav">
-    <a href="about.html">About</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="index.html#services">Services</a>
-    <a href="reservations.html">Reservations</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-</div></header>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — LE LAW OFFICE</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container bar">
+    <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
+    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">Menu</button>
+    <nav id="site-nav" class="nav">
+      <a href="about.html" aria-current="page">About</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="index.html#services">Services</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <section class="container section">
+  <section class="hero container">
     <h1>About the Firm</h1>
-    <p class="lead">We provide diligent, compassionate representation in Immigration & Refugee and Criminal Defence matters.</p>
+    <p class="lead">We provide diligent, compassionate representation in <strong>Immigration & Refugee</strong> and <strong>Criminal Defence</strong> matters.</p>
   </section>
-  <section class="section"><div class="container grid two">
-    <div class="card"><h2>Our Approach</</h2><p>Careful case preparation, clear communication, and strategic focus.</p></div>
-    <div class="card"><h2>Principal Counsel</h2><p><strong>Lelebari Blessing Nkpogone‑Mpigi (Lele)</strong><br>Barrister & Solicitor, Ontario</p></div>
-  </div></section>
-  <footer class="footer"><div class="container">© <span id="y"></span> LE LAW OFFICE. All rights reserved.</div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <section class="section container grid two">
+    <div class="card">
+      <h2>Our Approach</h2>
+      <p>Careful case preparation, clear communication, and strategic focus.</p>
+    </div>
+    <div class="card">
+      <h2>Principal Counsel</h2>
+      <p><strong>Lelebari Blessing Nkpogone-Mpigi (Lele)</strong> — Barrister & Solicitor, Ontario.</p>
+    </div>
+  </section>
 </main>
-</body></html>
+<footer class="footer container">
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> LE LAW OFFICE. All rights reserved.</p>
+</footer>
+</body>
+</html>

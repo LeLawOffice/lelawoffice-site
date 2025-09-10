@@ -1,33 +1,43 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Testimonials — LE LAW OFFICE</title>
-<link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="styles.css">
-
-</head><body>
-<header class="header"><div class="container bar">
-  <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
-  <nav class="nav">
-    <a href="about.html">About</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="index.html#services">Services</a>
-    <a href="reservations.html">Reservations</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-</div></header>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testimonials — LE LAW OFFICE</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container bar">
+    <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
+    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">Menu</button>
+    <nav id="site-nav" class="nav">
+      <a href="about.html">About</a>
+      <a href="testimonials.html" aria-current="page">Testimonials</a>
+      <a href="index.html#services">Services</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <section class="container section">
+  <section class="hero container">
     <h1>Client Testimonials</h1>
-    <p class="lead">What clients say about working with LE LAW OFFICE.</p>
+    <p class="lead">What our clients say about us.</p>
   </section>
-  <section class="section"><div class="container grid two">
-    <div class="card"><p>“Professional, responsive, and compassionate.”</p><p><strong>— A.O., Toronto</strong></p></div>
-    <div class="card"><p>“Clear guidance and strong advocacy in court.”</p><p><strong>— M.K., Vaughan</strong></p></div>
-    <div class="card"><p>“We received our work permits faster than expected.”</p><p><strong>— J.S., Brampton</strong></p></div>
-    <div class="card"><p>“Direct, honest advice and great results.”</p><p><strong>— L.N., Mississauga</strong></p></div>
-  </div></section>
-  <footer class="footer"><div class="container">© <span id="y"></span> LE LAW OFFICE. All rights reserved.</div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <section class="section container">
+    <div class="card">
+      <p>"Professional, dedicated, and compassionate service. Highly recommended!"</p>
+    </div>
+    <div class="card">
+      <p>"Helped me navigate my immigration case with clarity and confidence."</p>
+    </div>
+  </section>
 </main>
-</body></html>
+<footer class="footer container">
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> LE LAW OFFICE. All rights reserved.</p>
+</footer>
+</body>
+</html>

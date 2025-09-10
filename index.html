@@ -6,18 +6,13 @@
   <title>LE LAW OFFICE — Justice. Integrity. Advocacy.</title>
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-<!-- Header -->
 <header class="header">
   <div class="container bar">
     <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
-
-    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">
-      Menu
-    </button>
-
+    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">Menu</button>
     <nav id="site-nav" class="nav">
       <a href="about.html">About</a>
       <a href="testimonials.html">Testimonials</a>
@@ -27,8 +22,6 @@
     </nav>
   </div>
 </header>
-
-<!-- Hero Section -->
 <main>
   <section class="hero container">
     <h1>Justice. Integrity. Advocacy.</h1>
@@ -39,8 +32,6 @@
       <a class="btn" href="#services">Our Services</a>
     </p>
   </section>
-
-  <!-- Services -->
   <section id="services" class="section container">
     <h2>Legal Services</h2>
     <div class="grid two">
@@ -62,16 +53,10 @@
       </div>
     </div>
   </section>
-
-  <!-- Counsel -->
   <section class="section container">
     <h2>Your Counsel</h2>
-    <p><strong>Lelebari Blessing Nkpogone-Mpigi (Lele)</strong> —
-       Barrister & Solicitor. Dedicated to client-centered advocacy
-       with clear communication and practical results.</p>
+    <p><strong>Lelebari Blessing Nkpogone-Mpigi (Lele)</strong> — Barrister & Solicitor. Dedicated to client-centered advocacy with clear communication and practical results.</p>
   </section>
-
-  <!-- Contact -->
   <section id="contact" class="section container">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:info@lelawoffice.ca">info@lelawoffice.ca</a></p>
@@ -79,38 +64,8 @@
     <p>Address: 9131 Keele Street, Suite A4, Vaughan, Ontario L4K 0G7</p>
   </section>
 </main>
-
-<!-- Footer -->
 <footer class="footer container">
   <p>&copy; <script>document.write(new Date().getFullYear())</script> LE LAW OFFICE. All rights reserved.</p>
 </footer>
-
-<!-- Mobile menu script -->
-<script>
-  (function(){
-    const btn = document.getElementById('menu-toggle');
-    const nav = document.getElementById('site-nav');
-    if(!btn || !nav) return;
-
-    btn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    nav.addEventListener('click', (e) => {
-      if(e.target.tagName === 'A'){
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 900) {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-  })();
-</script>
 </body>
 </html>
