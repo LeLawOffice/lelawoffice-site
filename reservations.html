@@ -6,65 +6,119 @@
   <title>Book a Consultation — LE LAW OFFICE</title>
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Page-scoped helpers so this works even if styles.css is older -->
   <style>
-    .cal-wrap{width:min(1100px,92%);margin:24px auto;}
-    .cal-embed{min-width:320px;height:750px}
-    @media (max-width: 900px){
-      .cal-embed{height:80vh}
+    /* show/hide helpers */
+    .hide-mobile{display:inline}
+    .hide-desktop{display:none}
+    @media (max-width:900px){
+      .hide-mobile{display:none}
+      .hide-desktop{display:block}
+    }
+
+    /* mobile dropdown nav under header */
+    @media (max-width:900px){
+      #menu-toggle{display:inline-block}
+      .header .bar{position:relative; align-items:center}
+      .nav{
+        position:absolute; top:100%; left:0; right:0;
+        background:#fff; border-top:1px solid var(--line);
+        box-shadow:0 10px 20px rgba(0,0,0,.06);
+        display:none; padding:6px 0;
+      }
+      .nav.open{display:block}
+      .nav a{display:block; padding:12px 18px; border-top:1px solid var(--line); color:var(--ink); text-decoration:none;}
+      .nav a:first-child{border-top:none}
+    }
+    @media (min-width:901px){
+      #menu-toggle{display:none}
+      .nav{display:flex; gap:18px; position:static; box-shadow:none; border:0; padding:0;}
+      .nav a{border:0; padding:0;}
     }
   </style>
 </head>
+
 <body>
-<header class="header">
-  <div class="container bar">
-    <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
-    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false" style="display:none">Menu</button>
-    <nav id="site-nav" class="nav" hidden>
-      <a href="about.html">About</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="index.html#services">Services</a>
-      <a href="reservations.html" aria-current="page">Reservations</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Header with dropdown menu -->
+  <header class="header">
+    <div class="container bar">
+      <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
 
-<main class="cal-wrap">
-  <h1>Book a Consultation</h1>
-  <p class="lead">Choose a time that works for you. You’ll get an automatic confirmation and calendar invite.</p>
+      <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">
+        Menu
+      </button>
 
-  <div class="hide-mobile">
-    <div class="calendly-inline-widget cal-embed"
-         data-url="https://calendly.com/lelawoffice-info/30min"></div>
+      <nav id="site-nav" class="nav">
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="index.html#services">Services</a>
+        <a href="reservations.html" aria-current="page">Reservations</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container" style="padding:24px 0">
+    <h1>Book a Consultation</h1>
+    <p class="lead">Choose a time that works for you. You’ll get an automatic confirmation and calendar invite.</p>
+
+    <!-- Desktop: inline Calendly embed -->
+    <div class="hide-mobile" style="margin-top:12px">
+      <div
+        class="calendly-inline-widget"
+        id="cal-embed"
+        data-url="https://calendly.com/lelawoffice-info/30min"
+        style="min-width:320px;height:760px">
+      </div>
+    </div>
+
+    <!-- Mobile: popup Calendly (no cut-off, smoother) -->
+    <div class="hide-desktop" style="margin-top:12px">
+      <a class="btn primary" id="open-cal">Open Calendar &amp; Book</a>
+    </div>
+
+    <!-- Calendly script -->
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  </div>
 
-  <div class="hide-desktop">
-    <p><a class="btn primary" id="open-calendly">Open Calendar & Book</a></p>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Page JS: Calendly popup + mobile menu -->
     <script>
-      document.addEventListener('click', function(e){
-        if(e.target && e.target.id === 'open-calendly'){
-          window.Calendly && Calendly.initPopupWidget({
-            url: 'https://calendly.com/lelawoffice-info/30min'
-          });
+      // Mobile Calendly popup
+      document.getElementById('open-cal')?.addEventListener('click', function(){
+        if (window.Calendly) {
+          Calendly.initPopupWidget({ url:'https://calendly.com/lelawoffice-info/30min' });
         }
       });
-    </script>
-  </div>
-</main>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function(){
-    var btn = document.getElementById('menu-toggle');
-    var nav = document.getElementById('site-nav');
-    if(!btn || !nav) return;
-    btn.addEventListener('click', function(){
-      var hidden = nav.hasAttribute('hidden');
-      if(hidden){ nav.removeAttribute('hidden'); btn.setAttribute('aria-expanded','true'); }
-      else { nav.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); }
-    });
-  });
-</script>
+      // Mobile dropdown menu
+      (function(){
+        const btn = document.getElementById('menu-toggle');
+        const nav = document.getElementById('site-nav');
+        if(!btn || !nav) return;
+
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        // Close after tapping a link
+        nav.addEventListener('click', (e) => {
+          if(e.target.tagName === 'A'){
+            nav.classList.remove('open');
+            btn.setAttribute('aria-expanded','false');
+          }
+        });
+
+        // Reset when switching to desktop
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 900) {
+            nav.classList.remove('open');
+            btn.setAttribute('aria-expanded','false');
+          }
+        });
+      })();
+    </script>
+  </main>
 </body>
 </html>
