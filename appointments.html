@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appointments — LE LAW OFFICE</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    .calendly-inline-widget {min-width:320px;height:900px;}
+    @media(max-width:900px){.calendly-inline-widget{display:none}.mobile-reserve{display:block}}
+    @media(min-width:901px){.mobile-reserve{display:none}}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container bar">
+    <a class="brand" href="index.html"><span class="logo">LE</span> LE LAW OFFICE</a>
+    <button id="menu-toggle" class="btn" aria-controls="site-nav" aria-expanded="false">Menu</button>
+    <nav id="site-nav" class="nav">
+      <a href="about.html">About</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="index.html#services">Services</a>
+      <a href="appointments.html" aria-current="page">Appointments</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="container section">
+  <h1>Book an Appointment</h1>
+  <p>Choose a time that works for you. You'll get an automatic confirmation and calendar invite.</p>
+  <div class="mobile-reserve">
+    <a class="btn primary" href="https://calendly.com/lelawoffice-info/30min" target="_blank" rel="noopener">Open Calendar & Book</a>
+  </div>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/lelawoffice-info/30min"></div>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</main>
+<footer class="footer container">
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> LE LAW OFFICE. All rights reserved.</p>
+</footer>
+</body>
+</html>
