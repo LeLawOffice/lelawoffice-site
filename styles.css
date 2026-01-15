@@ -7,8 +7,7 @@ img{max-width:100%;height:auto;display:block}
 .header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
 .header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none}
-.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--blue);display:grid;place-items:center;
- color:#fff;font-size:16px;font-weight:800}
+.brand .logo { width: 100px; height: auto; }
 .nav{display:flex;gap:18px} .nav a{color:var(--ink);opacity:.9}
 .nav a[aria-current='page']{color:var(--blue);font-weight:700}
 .hero{padding:40px 0} .hero h1{font-size:32px;margin:.2em 0} .lead{color:var(--muted)}
